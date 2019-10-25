@@ -1,0 +1,21 @@
+* {
+    padding-left:3px;
+    margin-block:10px;
+}
+.clearfix {
+    clear:both;
+}
+body {
+    background:gold;
+    margin-top: 20px;
+}
+
+#mains{
+    font-size: 30px;
+    background-color: Black;
+    color:gold;
+    text-align:center;
+    width: 80%;
+    margin: auto;
+    padding:10px;
+};
