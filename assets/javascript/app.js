@@ -1,7 +1,8 @@
+//Start and Reset game.  Button set up with on "click" event.
 $("#start").on("click",function(){
     game.start();
 })
-//Create Variable for questions
+//Create Variable for questions.  Array of Methods for individual questions[questons: "", answers: [], rightAnswer:""]
 var questions = [{
     question:  "How many Super Bowl wins do the Steelers have in their historic existance?",
     answers: ["Zero", "Four", "Two", "Six"],
@@ -43,7 +44,7 @@ var questions = [{
     answers: ["Hines Ward", "Emmitt Smith", "Terrell Owens", "Antwan Randle-El"],
     rightAnswer:  "Hines Ward"
 }];
-
+//
 var game = {
     correct:    0,
     incorrect:  0,
@@ -68,6 +69,7 @@ var game = {
             }
         }
     },
+    //
     done: function(){
         $.each($("input[name='question-0]':checked"),function(){
             if($(this).val()==question[0].rightAnswer){
@@ -141,14 +143,13 @@ var game = {
         });
 
         this.result();      
-        },
+    },
         result:  function(){
             clearInterval(timer);
             $("subMains h2").remove();
-
-            $("subMains").html("<h2>Done</h2>");
+            $("subMains").html("<h2>Done!!</h2>");
             $("subMains").append("<h3>Correct Answers: "+this.correct+"</h3>");
             $("subMains").append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
             $("subMains").append("<h3>Unanswered: "+(question.length - (this.correct+this.incorrect))+"</h3>");
-        } 
-}
+        }
+} 
