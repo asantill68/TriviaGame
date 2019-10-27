@@ -2,6 +2,9 @@
 $("#start").on("click",function(){
     game.start();
 })
+$(document).on("click", "#end", function(){
+    game.done();
+})
 //Create Variable for questions.  Array of Methods for individual questions[questons: "", answers: [], rightAnswer:""]
 var questions = [{
     question:  "How many Super Bowl wins do the Steelers have in their historic existance?",
@@ -68,6 +71,7 @@ var game = {
                 $("#subMains").append("<input type='radio' name='question-"+i+"'value='"+questions[i].answers[j]+"'>"+questions[i].answers[j]);
             }
         }
+        $("#subMains").append("<br><button id = 'end'>Done!</button>");
     },
     //
     done: function(){
@@ -146,10 +150,10 @@ var game = {
     },
         result:  function(){
             clearInterval(timer);
-            $("subMains h2").remove();
-            $("subMains").html("<h2>Done!!</h2>");
-            $("subMains").append("<h3>Correct Answers: "+this.correct+"</h3>");
-            $("subMains").append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
-            $("subMains").append("<h3>Unanswered: "+(question.length - (this.correct+this.incorrect))+"</h3>");
+            $("#subMains h2").remove();
+            $("#subMains").html("<h2>Done!!</h2>");
+            $("#subMains").append("<h3>Correct Answers: "+this.correct+"</h3>");
+            $("#subMains").append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
+            $("#subMains").append("<h3>Unanswered: "+(question.length - (this.correct+this.incorrect))+"</h3>");
         }
 } 
